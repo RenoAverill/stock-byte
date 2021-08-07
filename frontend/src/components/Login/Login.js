@@ -1,21 +1,21 @@
-import React from 'react'
-import {LoginContainer, LoginInput, SignUpBtn} from './LoginElements'
+// import React from 'react'
+// import {LoginContainer, LoginInput, SignUpBtn} from './LoginElements'
 
-const Login = () => {
-  return (
-    <>
-      <LoginContainer>
+// const Login = () => {
+//   return (
+//     <>
+//       <LoginContainer>
 
-        <LoginInput type='text' placeholder='USERNAME'></LoginInput>
+//         <LoginInput type='text' placeholder='USERNAME'></LoginInput>
 
-        <LoginInput type='password' placeholder='PASSWORD'></LoginInput>
+//         <LoginInput type='password' placeholder='PASSWORD'></LoginInput>
 
-        <SignUpBtn>asdfa</SignUpBtn>
+//         <SignUpBtn>asdfa</SignUpBtn>
 
-      </LoginContainer>
-    </>
-  )
-}
+//       </LoginContainer>
+//     </>
+//   )
+// }
 
 
-export default Login
+// export default Login

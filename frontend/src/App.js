@@ -3,16 +3,14 @@
 import { BrowserRouter as Router  } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Background from './components/Background'
-import Login from './components/Login/Login';
 
 
 const App = () => {
   
   return (
     <Router>
-      <HomePage/>
-      <Login/>
       <Background/>
+      <HomePage/>
     </Router>
   );
 }
