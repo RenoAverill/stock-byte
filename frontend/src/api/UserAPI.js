@@ -26,5 +26,4 @@ const signupUser = (userObject) => {
     body: JSON.stringify(userObject)
   }).then(res => res)
 };
-
 export { login, getLoggedInUser, signupUser }
