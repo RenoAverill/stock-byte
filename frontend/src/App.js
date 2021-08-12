@@ -3,13 +3,14 @@ import { BrowserRouter as Router  } from 'react-router-dom';
 import { Route } from 'react-router-dom'
 import { getLoggedInUser, login } from './api/UserAPI';
 import { useState, useEffect } from 'react';
+import Backgound from './components/Background'
+import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignupPage from './pages/SignupPage/SignupPage';
-import Backgound from './components/Background'
-import Navbar from './components/Navbar';
 import CoinPage from './pages/CoinPage/CoinPage';
 import StockPage from './pages/StockPage/StockPage';
+import WatchlistPage from './pages/WatchlistPage/WatchlistPage'
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -89,6 +90,7 @@ const App = () => {
           <Route exact path="/login" render={renderLoginPage} />
           <Route exact path='/coins' component={CoinPage}/>
           <Route exact path='/stocks' component={StockPage}/>
+          <Route exact path='/watchlist' component={WatchlistPage}/>
         </div>
       </Router>
     </div>

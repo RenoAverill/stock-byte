@@ -2,38 +2,53 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Stocks from '../../components/Stock/Stock'
 
-const BASE_URL = "https://api.tdameritrade.com/v1/marketdata/quotes?apikey=9MPYNAFHT088WTRKTY6NXJAKJLDIDSG8&symbol=goog"
 
 const StockPage = () => {
   const [stocks, setStocks] = useState([])
   const [search, setSearch] = useState('')
   
+  const BASE_URL = `https://api.tdameritrade.com/v1/marketdata/quotes?apikey=9MPYNAFHT088WTRKTY6NXJAKJLDIDSG8&symbol=${search}`
+
   useEffect(() => {
     fetch(`${BASE_URL}`)
     .then(res=>res.json())
     .then(data=>{
-      setStocks(data)})
+      setStocks(data)
+    })
     .catch(error=>alert(error))
-  },[])
+  },[search])
 
-  const handleChange = (evt) => {
-    setSearch(evt.target.value)
+  const handleSubmit = (evt) => {
+    evt.preventDefault()
+    setSearch(evt.target[0].value)
   }
 
   const renderStocks = ()=>{
-    return (
-      <Stocks price={stocks[0]}/>
+    let value = search.toLocaleUpperCase()
+    let stockObj = stocks[value]
+    if (stockObj){
+      return (
+        <Stocks
+          name={search}
+          price={stockObj.bidPrice}
+          volume={stockObj.totalVolume}
+          />
       )
-    }
+    } 
+  }
 
 
   return (
         <div className='coin-app'>
           <div className='coin-search'>
             <h1 className='coin-text'>Search a Stock</h1>
-            <form>
-              <input type='text' placeholder='Search'
-              className='coin-input' onChange={handleChange}/>
+            <form onSubmit={handleSubmit}>
+              <input
+              type='text'
+              placeholder='Search'
+              className='coin-input'
+              ></input>
+              <button type='submit' className="hidden"></button>
             </form>
           </div>
           {renderStocks()}

@@ -13,6 +13,7 @@ const Navbar = () => {
           <NavItem to='/'>StockByte</NavItem>
           <NavItem to='/stocks'>Stocks</NavItem>
           <NavItem to='/coins'>Coins</NavItem>
+          <NavItem to='/watchlist'>Watchlist</NavItem>
           <NavItem to='#'>About</NavItem>
         </NavbarContainer>
       </Nav>
