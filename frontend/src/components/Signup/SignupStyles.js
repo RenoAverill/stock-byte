@@ -6,7 +6,7 @@ export const MainContainer = styled.form`
   align-items: center;
   flex-direction: column;
   height: 10vh;
-  backdrop-filter: blur(0.1px);
+  backdrop-filter: blur(0.01px);
   text-transform: uppercase;
   letter-spacing: 0.4rem;
   height: 50%;
@@ -71,4 +71,5 @@ export const StyledButton = styled.button`
   color: white;
   border-radius: 2rem;
   cursor: pointer;
+  font-size: medium;
   `
