@@ -5,7 +5,7 @@ import Backgound from './components/Background'
 import Navbar from './components/Navbar';
 import Login from './components/Login/Login'
 import HomePage from './pages/HomePage/HomePage';
-import SignupPage from './pages/SignupPage/SignupPage';
+import Signup from './components/Signup/Signup';
 import CoinPage from './pages/CoinPage/CoinPage';
 import StockPage from './pages/StockPage/StockPage';
 import WatchlistPage from './pages/WatchlistPage/WatchlistPage'
@@ -26,7 +26,7 @@ const App = () => {
       <Navbar /> 
         <div>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/signup" component={SignupPage} />
+          <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
           <Route exact path='/coins' component={CoinPage}/>
           <Route exact path='/stocks' component={StockPage}/>
