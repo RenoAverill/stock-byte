@@ -8,7 +8,8 @@ CoinVolume,
 CoinSymbol,
 Img,
 CoinGreen,
-CoinRed
+CoinRed,
+CoinWatch
 } from './CoinStyles'
 
 const Coins = ({name, image, symbol, price, volume, priceChange}) => {
@@ -23,6 +24,7 @@ const Coins = ({name, image, symbol, price, volume, priceChange}) => {
           <CoinData>
             <CoinPrice>COIN PRICE: ${price}</CoinPrice>
             <CoinVolume>VOLUME: {volume}</CoinVolume>
+            <CoinWatch>ADD TO WATCHLIST!</CoinWatch>
             {priceChange < 0 ? (
             <CoinRed>{priceChange.toFixed(2)}</CoinRed>
           ) : (<CoinGreen>{priceChange.toFixed(2)}</CoinGreen>)

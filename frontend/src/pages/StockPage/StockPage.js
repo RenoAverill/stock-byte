@@ -32,6 +32,7 @@ const StockPage = () => {
           name={search}
           price={stockObj.bidPrice}
           volume={stockObj.totalVolume}
+          iv={stockObj.volatility}
           />
       )
     } 

@@ -1,31 +1,33 @@
 import styled from "styled-components";
 
 export const WatchlistBox = styled.div`
-  display:flex;
-  justify-content: center;
-  z-index: 15;
-`
-export const WatchlistWrapper = styled.div`
-  display:flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  height: 80px;
-  border-bottom: 1px solid #d7d7d7;
-  width: 990px;
+  margin: auto;
+  width:50%;
+  padding:10px;
 `
 export const WatchlistHeader = styled.div`
   display: flex;
-  align-items: center;
-  padding-right: 24px;
+  justify-content:center;
   min-width: 300px;
 `
 export const WatchlistCat = styled.div`
-  display: flex;
-  align-items: center;
-  padding-right: 24px;
   min-width: 300px;
+  color:white;
+  display:inline-flexbox;
+  justify-content:center;
+  z-index: 15;
+  border-bottom: 1px solid white;
+  
 `
-export const WatchlistDataWrapper = styled.div`
-  display: flex;
-`
+// export const WatchlistDataWrapper = styled.div`
+//   display: flex;
+//   align-items: flex-start;
+//   color:blue;
+//   background-color: red;
+  
+// `
+
+// export const WatchlistData = styled.p`
+//   color:white;
+//   justify-content:space-around;
+//   background-color: black;`

@@ -4,22 +4,19 @@ import {
   WatchlistDataWrapper,
   WatchlistHeader,
   WatchlistCat,
-  WatchlistWrapper
+  WatchlistWrapper,
+  WatchlistData
 } from './WatchlistStyles'
 
 const Watchlist = () => {
   return (
     <>
       <WatchlistBox>
-      <WatchlistWrapper>
         <WatchlistHeader>
           <WatchlistCat>Name</WatchlistCat>
           <WatchlistCat>Price</WatchlistCat>
         </WatchlistHeader>
-          <WatchlistDataWrapper>
-          </WatchlistDataWrapper>
-      </WatchlistWrapper>
-    </WatchlistBox>
+      </WatchlistBox>
     </>
   )
 }

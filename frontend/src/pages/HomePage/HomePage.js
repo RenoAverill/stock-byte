@@ -4,16 +4,14 @@ ButtonContainer,
 Button} from './HomePageStyles';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import Login from '../../components/Login/Login'
 
 
-const HomePage =({ isLoggedIn, user, handleLogout }) => {
+const HomePage =({ isLoggedIn, user}) => {
   return(
     <>
       {
-        user &&
-        <div>
-          Hi {user.username}
-        </div>
+        user && alert(`Hello ${user.username}!`)
       }
       {
         !isLoggedIn
@@ -30,7 +28,11 @@ const HomePage =({ isLoggedIn, user, handleLogout }) => {
           </MainContainer>
         </>
         :
-        <button onClick={handleLogout}>Logout</button>
+        <MainContainer>
+          <ButtonContainer>
+            <Button content='Log out'></Button>
+          </ButtonContainer>
+        </MainContainer>
       }
     </>
   )

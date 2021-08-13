@@ -47,6 +47,12 @@ export const CoinPrice = styled.p`
 export const CoinVolume = styled.p`
   width: 155px;
 `
+export const CoinWatch = styled.button`
+  cursor: pointer;
+  width:150px;
+  background: transparent;
+  font-size: medium;
+`
 
 export const CoinGreen = styled.p`
   color: green;

@@ -4,10 +4,11 @@ import { StockContainer,
   Stock,
   StockData,
   StockPrice,
-  StockVolume} from './StockStyles'
+  StockVolume,
+  StockWatch} from './StockStyles'
 
 
-const Stocks = ({name, price, volume}) => {
+const Stocks = ({name, price, volume, iv}) => {
   return (
     <StockContainer>
     <StockRow>
@@ -17,6 +18,8 @@ const Stocks = ({name, price, volume}) => {
       <StockData>
         <StockPrice>STOCK PRICE: ${price}</StockPrice>
         <StockVolume>VOLUME: {volume}</StockVolume>
+        <StockVolume>IMPLIED VOLATILITY: {iv}</StockVolume>
+        <StockWatch>ADD TO WATCHLIST!</StockWatch>
       </StockData>
     </StockRow>
   </StockContainer>

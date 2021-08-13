@@ -38,5 +38,11 @@ export const StockPrice = styled.p`
   width: 130px;
 `
 export const StockVolume = styled.p`
-  width: 155px;
+  width: 100px;
+`
+export const StockWatch = styled.button`
+  cursor: pointer;
+  width:150px;
+  background: transparent;
+  font-size: medium;
 `
