@@ -6,22 +6,13 @@ const setWatchlistData = (ticker, price) => {
       'Content-Type': 'application/json',
       'Authorization': `JWT ${token}`
     },
-    content: {
-      "ticker": ticker,
-      "price": price
+    body: {
+      "ticker": 'letstrythisout',
+      "price": '12341231231'
   }
   }).then(res=>res)
 };
 
-const getWatchlist = () => {
-  let token = localStorage.getItem('auth-user')
-  return fetch('http://localhost:8000/core/watchlist/',{
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `JWT ${token}`
-    }
-  }).then(res=>res.json())
-  .then(data=>data)
-};
-
-export { getWatchlist, setWatchlistData }
+export default {
+  setWatchlistData
+}

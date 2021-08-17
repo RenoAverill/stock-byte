@@ -1,51 +1,28 @@
 import React from 'react'
-import {
-  WatchlistBox,
-  WatchlistDataWrapper,
-  WatchlistHeader,
-  WatchlistCat,
-  WatchlistWrapper,
-  WatchlistTicker,
-  WatchlistPrice,
-
+import {CoinContainer,
+  CoinRow,
+  Coin,
+  CoinData,
+  CoinPrice,
+  CoinVolume,
+  CoinSymbol,
 } from './WatchlistStyles'
-import { useState, useEffect } from 'react'
-import { getWatchlist } from '../../api/WatchlistAPI'
-
 
   
-const Watchlist = () => {
-  const [ticker, setTicker] = useState(null)
-  const [price, setPrice] = useState(0)
+const Watchlist = ({ticker, price}) => {
 
-  const getData = async () => {
-    let data = await getWatchlist()
-    for (let items of data){
-      setTicker(items.ticker)
-      setTicker(items.price)
-    }
-  }
-
-  let renderWatchlistItems = () => {
-    return (
-      <>
-        <WatchlistTicker>{ticker}</WatchlistTicker>
-        <WatchlistPrice>{price}</WatchlistPrice>
-      </> 
-    )
-  }
   return (
-    <>
-      <WatchlistBox>
-        <WatchlistHeader>
-          <WatchlistCat>Name</WatchlistCat>
-          <WatchlistCat>Price</WatchlistCat>
-        </WatchlistHeader>
-        <WatchlistDataWrapper>
-          {renderWatchlistItems()}
-        </WatchlistDataWrapper>
-      </WatchlistBox>
-    </>
+    <CoinContainer>
+    <CoinRow>
+      <Coin>
+        <CoinSymbol>{ticker}</CoinSymbol>
+      </Coin>
+      <CoinData>
+        <CoinPrice>PRICE: ${price}</CoinPrice>
+        <CoinVolume>VOLUME: Soon to come!</CoinVolume>
+      </CoinData>
+    </CoinRow>
+  </CoinContainer>
   )
 }
 

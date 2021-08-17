@@ -1,46 +1,45 @@
 import styled from "styled-components";
 
-export const WatchlistBox = styled.div`
-  margin: auto;
-  width:50%;
-  padding:10px;
-`
-export const WatchlistHeader = styled.div`
-  display: flex;
-  justify-content:center;
-  min-width: 300px;
-`
-export const WatchlistCat = styled.div`
-  min-width: 300px;
-  color:white;
-  display:inline-flexbox;
-  justify-content:center;
+export const CoinContainer = styled.div`
+  display:flex;
+  justify-content: center;
   z-index: 15;
-  border-bottom: 1px solid white;
-  
 `
-export const WatchlistDataWrapper = styled.div`
+
+export const CoinRow = styled.div`
+  display:flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid #d7d7d7;
+  width: 990px;
+`
+export const Coin = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-  
+  padding-right: 24px;
+  min-width: 300px;
+
+  && h1 {
+    font-size: 16px;
+    width:150px;
+  }
+`
+export const CoinSymbol = styled.p`
+  text-transform: uppercase;;
+`
+export const CoinData = styled.div`
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  width: 100%;
+
+  `
+export const CoinPrice = styled.p`
+  width: 130px;
+`
+export const CoinVolume = styled.p`
+  width: 155px;
 `
 
-export const WatchlistTicker = styled.p`
-  min-width: 300px;
-  color:white;
-  display:inline-flexbox;
-  justify-content:center;
-  z-index: 15;
-  border-bottom: 1px solid white;
-`
-
-export const WatchlistPrice = styled.p`
-  min-width: 300px;
-  color:white;
-  display:inline-flexbox;
-  justify-content:center;
-  z-index: 15;
-  border-bottom: 1px solid white;
-`

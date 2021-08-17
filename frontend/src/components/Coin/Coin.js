@@ -11,9 +11,12 @@ CoinGreen,
 CoinRed,
 CoinWatch
 } from './CoinStyles'
-import { setWatchlistData } from '../../api/WatchlistAPI'
+import WatchlistAPI from '../../api/WatchlistAPI'
 
 const Coins = ({name, image, symbol, price, volume, priceChange}) => {
+
+  const setData = () => WatchlistAPI.setWatchlistData(symbol, price)
+  
   return (
       <CoinContainer>
         <CoinRow>
@@ -25,7 +28,7 @@ const Coins = ({name, image, symbol, price, volume, priceChange}) => {
           <CoinData>
             <CoinPrice>COIN PRICE: ${price}</CoinPrice>
             <CoinVolume>VOLUME: {volume}</CoinVolume>
-            <CoinWatch onClick={()=>setWatchlistData(symbol, price)} ticker={symbol} price={price} >ADD TO WATCHLIST!</CoinWatch>
+            <CoinWatch onClick={setData} >ADD TO WATCHLIST!</CoinWatch>
             {priceChange < 0 ? (
             <CoinRed>{priceChange.toFixed(2)}</CoinRed>
           ) : (<CoinGreen>{priceChange.toFixed(2)}</CoinGreen>)
