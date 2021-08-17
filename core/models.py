@@ -8,7 +8,6 @@ from django.contrib.auth.models import User
 class Watchlist(models.Model):
     ticker = models.TextField()
     price = models.TextField()
-    onwer = models.ForeignKey(User, related_name='cores', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.ticker

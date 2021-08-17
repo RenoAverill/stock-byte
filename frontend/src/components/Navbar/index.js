@@ -6,47 +6,47 @@ import { Nav,
 import { useState, useEffect } from 'react'
 import { getLoggedInUser } from '../../api/UserAPI'
 
-const Navbar = () => {
-  const [user, setUser] = useState(false)
-
+const Navbar = ({user, handleLogout}) => {
+  
+  const [renderItems, setRenderItems] = useState(false)
   useEffect(() => {
     const getUser = async () => {
       if (localStorage.getItem("auth-user") !== 'null') {
         let response = await getLoggedInUser(localStorage.getItem("auth-user"));
         let data = await response.json();
         if (data.username) {
-          setUser(true)
+          setRenderItems(true)
         }
       }
     }
     if (!user) {
       getUser();
     }
-  })
+  }, [user])
 
-  const handleLogout = () => {
-    localStorage.setItem("auth-user", null);
-    console.log('user logged out!')
+  const renderNavItems = () =>{
+    if (!renderItems) {
+      return(
+        <>
+          <NavItem to='/stocks'>Stocks</NavItem>
+          <NavItem to='/coins'>Coins</NavItem>
+          <NavItem to='/watchlist'>Watchlist</NavItem>
+          <NavItem onClick={handleLogout} to='/'>Logout</NavItem>
+        </>
+      )
+    }
   }
-
+  
   return (
     <>
       <Nav>
         <NavbarContainer>
           <NavItem to='/'>StockByte</NavItem>
-          { user &&
-              <>
-                <NavItem to='/stocks'>Stocks</NavItem>
-                <NavItem to='/coins'>Coins</NavItem>
-                <NavItem to='/watchlist'>Watchlist</NavItem>
-                <NavItem onClick={handleLogout} to='/'>Logout</NavItem>
-              </>
-          }
+          {renderNavItems()}
           <NavItem to='#'>About</NavItem>
         </NavbarContainer>
       </Nav>
     </>
   )
 }
-
 export default Navbar

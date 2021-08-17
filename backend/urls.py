@@ -5,5 +5,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('token-auth/', obtain_jwt_token),
-    path('core/', include('core.urls'))
+    path('core/', include('core.urls')),
 ]
+

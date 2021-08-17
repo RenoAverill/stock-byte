@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Coins from '../../components/Coin/Coin'
 import axios from 'axios'
 
-const CoinPage = ({isLoggedIn}) => {
+const CoinPage = () => {
   const [coins, setCoins] = useState([])
   const [search, setSearch] = useState('')
   

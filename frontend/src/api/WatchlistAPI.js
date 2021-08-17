@@ -1,24 +1,27 @@
 const setWatchlistData = (ticker, price) => {
   let token = localStorage.getItem('auth-user')
-  return fetch('http://localhost:8000/core/watchlist/watchlist/', {
+  return fetch('http://localhost:8000/core/watchlist/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `JWT ${token}`
     },
-    body: JSON.stringify(ticker, price)
-  }).then(res => res)
+    content: {
+      "ticker": ticker,
+      "price": price
+  }
+  }).then(res=>res)
 };
 
 const getWatchlist = () => {
   let token = localStorage.getItem('auth-user')
-  console.log(token)
-  return fetch('http://localhost:8000/core/watchlist/watchlist/?format=json',{
+  return fetch('http://localhost:8000/core/watchlist/',{
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `JWT ${token}`
     }
-  }).then(res => console.log(res))
+  }).then(res=>res.json())
+  .then(data=>data)
 };
 
 export { getWatchlist, setWatchlistData }

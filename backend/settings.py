@@ -1,5 +1,8 @@
 from pathlib import Path
 
+import rest_framework
+from datetime import timedelta
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -45,9 +48,9 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'backend.urls'
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
@@ -55,15 +58,12 @@ REST_FRAMEWORK = {
     ),
 }
 JWT_AUTH = {
-    'JWT_RESPONSE_PAYLOAD_HANDLER': 'backend.utils.my_jwt_response_handler'
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'backend.utils.my_jwt_response_handler',
+    'JWT_EXPIRATION_DELTA': timedelta(days=2),
 }
 
+
 CORS_ORIGIN_WHITELIST = ['https://localhost:3000','http://localhost:3000']
-# CORS_ALLOWED_ORIGINS = [
-#     'https://localhost:3000',
-#     'http://localhost:3000',
-    
-# ]
 
 
 

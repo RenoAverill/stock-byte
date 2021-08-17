@@ -1,5 +1,4 @@
 from core.models import Watchlist
-from django.db.models import fields
 from rest_framework import serializers
 from rest_framework_jwt.settings import api_settings
 from django.contrib.auth.models import User
@@ -11,7 +10,6 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['username']
 
-## Serializes new user sign ups that responds with the new user's information including a new token.
 class UserSerializerWithToken(serializers.ModelSerializer):
 
     token = serializers.SerializerMethodField()

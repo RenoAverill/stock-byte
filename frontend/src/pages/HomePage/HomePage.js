@@ -7,14 +7,11 @@ import React from 'react';
 import Login from '../../components/Login/Login'
 
 
-const HomePage =({ isLoggedIn, user}) => {
+const HomePage =({ user}) => {
   return(
     <>
       {
-        user && alert(`Hello ${user.username}!`)
-      }
-      {
-        !isLoggedIn
+        !user
         &&
         <>
           <MainContainer >

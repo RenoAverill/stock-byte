@@ -18,9 +18,13 @@ const Watchlist = () => {
   const [ticker, setTicker] = useState(null)
   const [price, setPrice] = useState(0)
 
-  useEffect(() => {
-    getWatchlist()
-  })
+  const getData = async () => {
+    let data = await getWatchlist()
+    for (let items of data){
+      setTicker(items.ticker)
+      setTicker(items.price)
+    }
+  }
 
   let renderWatchlistItems = () => {
     return (
