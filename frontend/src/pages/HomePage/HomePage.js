@@ -15,7 +15,7 @@ const HomePage =({ isLoggedIn, user}) => {
       }
       {
         !isLoggedIn
-        ?
+        &&
         <>
           <MainContainer >
             <WelcomeText>Welcome</WelcomeText>
@@ -27,13 +27,7 @@ const HomePage =({ isLoggedIn, user}) => {
             </ButtonContainer>
           </MainContainer>
         </>
-        :
-        <MainContainer>
-          <ButtonContainer>
-            <Button content='Log out'></Button>
-          </ButtonContainer>
-        </MainContainer>
-      }
+}
     </>
   )
 }

@@ -5,7 +5,9 @@ const WatchlistPage = () => {
 
   const renderWatchlist = () => {
     return (
-      <Watchlist></Watchlist>
+      <Watchlist>
+        
+      </Watchlist>
     )
   }
   return (

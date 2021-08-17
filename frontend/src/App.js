@@ -12,13 +12,6 @@ import WatchlistPage from './pages/WatchlistPage/WatchlistPage'
 
 const App = () => {
 
-  // const handleLogout = () => {
-  //   localStorage.setItem("auth-user", null);
-  //   setIsLoggedIn(false);
-  //   setUser(null);
-  // }
-
-  
   return (
     <div className='app'>
       <Router>

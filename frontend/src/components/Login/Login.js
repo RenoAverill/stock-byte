@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { login, getLoggedInUser } from '../../api/UserAPI';
+import { NavBar} from '../Navbar/index'
 import { MainContainer,
   WelcomeText,
   InputContainer,
@@ -37,6 +38,7 @@ const Login = () => {
     let response = await login(userObject);
     let data = await response.json();
     if (data.token) {
+      console.log(data.token)
       localStorage.setItem("auth-user", `${data.token}`);
       setIsLoggedIn(true);
       setUser(data.user);
@@ -47,13 +49,17 @@ const Login = () => {
     <>
       <MainContainer onSubmit={handleLogin}>
         <WelcomeText>Welcome</WelcomeText>
-          <InputContainer onSubmit={handleLogin}>
-            <Input type="text" placeholder="Username" name='username' />
-            <Input type="password" placeholder="Password" name='password'/>
-          </InputContainer>
-        <ButtonContainer type='submit'>
-          <Button content='Log In'/>
-        </ButtonContainer>
+        {!isLoggedIn &&
+          <>
+            <InputContainer onSubmit={handleLogin}>
+              <Input type="text" placeholder="Username" name='username' />
+              <Input type="password" placeholder="Password" name='password'/>
+            </InputContainer>
+            <ButtonContainer type='submit'>
+              <Button content='Log In'/>
+            </ButtonContainer>
+          </>
+        }
       </MainContainer>
     </>
   )

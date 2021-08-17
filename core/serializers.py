@@ -1,3 +1,5 @@
+from core.models import Watchlist
+from django.db.models import fields
 from rest_framework import serializers
 from rest_framework_jwt.settings import api_settings
 from django.contrib.auth.models import User
@@ -34,3 +36,8 @@ class UserSerializerWithToken(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['token', 'username', 'password']
+
+class WatchlistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Watchlist
+        fields = ('ticker', 'price')

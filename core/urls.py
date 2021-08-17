@@ -1,7 +1,12 @@
-from django.urls import path
-from .views import current_user, UserList
+from django.urls import path, include
+from core import views
+from rest_framework import routers  
+
+router = routers.DefaultRouter()
+router.register(r'watchlist', views.watchlistView, 'watchlist')
 
 urlpatterns = [
-    path('current_user/', current_user),
-    path('users/', UserList.as_view())
+    path('current_user/', views.current_user),
+    path('users/', views.UserList.as_view()),
+    path('watchlist/', include(router.urls)),
 ]

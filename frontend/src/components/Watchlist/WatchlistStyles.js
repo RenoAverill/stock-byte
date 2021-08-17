@@ -19,15 +19,28 @@ export const WatchlistCat = styled.div`
   border-bottom: 1px solid white;
   
 `
-// export const WatchlistDataWrapper = styled.div`
-//   display: flex;
-//   align-items: flex-start;
-//   color:blue;
-//   background-color: red;
+export const WatchlistDataWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
   
-// `
+`
 
-// export const WatchlistData = styled.p`
-//   color:white;
-//   justify-content:space-around;
-//   background-color: black;`
+export const WatchlistTicker = styled.p`
+  min-width: 300px;
+  color:white;
+  display:inline-flexbox;
+  justify-content:center;
+  z-index: 15;
+  border-bottom: 1px solid white;
+`
+
+export const WatchlistPrice = styled.p`
+  min-width: 300px;
+  color:white;
+  display:inline-flexbox;
+  justify-content:center;
+  z-index: 15;
+  border-bottom: 1px solid white;
+`
