@@ -1,4 +1,4 @@
-from core.models import Watchlist
+from .models import Watchlist
 from rest_framework import serializers
 from rest_framework_jwt.settings import api_settings
 from django.contrib.auth.models import User
@@ -8,7 +8,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['username']
+        fields = ['username', "password"]
+        extra_kwargs = {'password': {"write_only":True}}
 
 class UserSerializerWithToken(serializers.ModelSerializer):
 
@@ -34,6 +35,7 @@ class UserSerializerWithToken(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['token', 'username', 'password']
+        extra_kwargs = {'password': {"write_only":True}}
 
 class WatchlistSerializer(serializers.ModelSerializer):
     class Meta:

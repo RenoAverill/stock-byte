@@ -7,7 +7,7 @@ import React from 'react';
 import Login from '../../components/Login/Login'
 
 
-const HomePage =({ user}) => {
+const HomePage =({ user }) => {
   return(
     <>
       {

@@ -3,22 +3,20 @@ import { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Redirect  } from 'react-router-dom';
 import { Route } from 'react-router-dom'
 import { getLoggedInUser, login } from './api/UserAPI';
-import Backgound from './components/Background'
-import Navbar from './components/Navbar';
-import Login from './components/Login/Login'
-import HomePage from './pages/HomePage/HomePage';
-import Signup from './components/Signup/Signup';
-import CoinPage from './pages/CoinPage/CoinPage';
-import StockPage from './pages/StockPage/StockPage';
-import WatchlistPage from './pages/WatchlistPage/WatchlistPage'
-import UserContext from './context/UserContext';
+// import Backgound from './components/Background'
+// import Navbar from './components/Navbar';
+// import Login from './components/Login/Login'
+// import HomePage from './pages/HomePage/HomePage';
+// import Signup from './components/Signup/Signup';
+// import CoinPage from './pages/CoinPage/CoinPage';
+// import StockPage from './pages/StockPage/StockPage';
+// import WatchlistPage from './pages/WatchlistPage/WatchlistPage'
 import PostLoadingComponent from './components/PostLoading'
 import Posts from './components/Posts'
 
 const App = () => {
   const [user, setUser] = useState(null)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [token, setToken]= useState(null);
   const PostLoading = PostLoadingComponent(Posts);
   const [appState, setAppState] = useState({
     loading: false,
@@ -43,8 +41,7 @@ const App = () => {
         let token = localStorage.getItem('auth-user')
         if (data.username) {
           setUser(data);
-          setIsLoggedIn(true)
-          setToken(token)
+          setIsLoggedIn(true) 
         }
       }
     }
@@ -81,14 +78,12 @@ const App = () => {
       <PostLoadingComponent isLoding={appState.loading} posts={appState.posts}/>
       <Router>
       <div>
-        <UserContext.Provider value={{user: user, token: token,isLoggedIn: isLoggedIn, handleLogin: handleLogin}}> 
-              <Route exact path="/" component={HomePage} />
+              {/* <Route exact path="/" component={HomePage} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/stocks" component={StockPage} />
               <Route exact path="/coins" component={CoinPage} />
-              <Route exact path="/watchlist" component={WatchlistPage} /> 
-          </UserContext.Provider>
+              <Route exact path="/watchlist" component={WatchlistPage} />  */}
         </div>
         </Router>
     </div>
