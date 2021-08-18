@@ -37,8 +37,8 @@ class watchlistView(viewsets.ModelViewSet):
     queryset = Watchlist.objects.all()
 
 
-@api_view(['GET', 'POST'])
-def watchlistList(request):
+@api_view(['GET', 'POST', 'DELETE'])
+def watchlistList(request, ticker=None):
     if request.method == 'GET':
         data = Watchlist.objects.all()
 
@@ -53,21 +53,16 @@ def watchlistList(request):
             
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['PUT', 'DELETE'])
-def watchlist_detail(request, pk):
-    try:
-        watchlist = Watchlist.objects.get(pk=pk)
-    except Watchlist.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-    if request.method == 'PUT':
-        serializer = WatchlistSerializer(watchlist, data=request.data,context={'request': request})
-        if serializer.is_valid():
-            serializer.save()
-            return Response(status=status.HTTP_204_NO_CONTENT)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
     elif request.method == 'DELETE':
-        watchlist.delete()
+        Watchlist.objects.get(ticker=ticker).delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+    return Response(status=status.HTTP_400_BAD_REQUEST)
+
+def delete_view(request, id):
+    context ={}
+    obj = Watchlist.objects.get(id=id)
+    if request.method =="POST":
+        obj.delete()
+        return HttpResponseRedirect("/")
+    return render(request, "delete_view.html", context)

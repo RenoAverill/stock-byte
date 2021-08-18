@@ -11,11 +11,30 @@ CoinGreen,
 CoinRed,
 CoinWatch
 } from './CoinStyles'
-import WatchlistAPI from '../../api/WatchlistAPI'
 
 const Coins = ({name, image, symbol, price, volume, priceChange}) => {
 
-  const setData = () => WatchlistAPI.setWatchlistData(symbol, price)
+  const setData = () => {
+    return setWatchlistData(symbol, price)
+  }
+
+  const setWatchlistData = async (ticker, price) => {
+    console.log(ticker, price)
+    let token = localStorage.getItem('auth-user')
+    let data = await fetch('http://localhost:8000/core/watchlist/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `JWT ${token}`
+      },
+      body: JSON.stringify({
+        "ticker": `${ticker}`,
+        "price": `${price}`
+    })
+    })
+    let response = await data.json()
+    await console.log(response)
+  };
   
   return (
       <CoinContainer>

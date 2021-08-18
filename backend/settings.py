@@ -23,6 +23,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'core',
+    'blog',
+    'blog_api',
     'rest_framework',
     'corsheaders',
     'django.contrib.admin',
@@ -70,7 +72,7 @@ CORS_ORIGIN_WHITELIST = ['https://localhost:3000','http://localhost:3000']
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

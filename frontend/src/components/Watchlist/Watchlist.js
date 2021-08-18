@@ -4,13 +4,33 @@ import {CoinContainer,
   Coin,
   CoinData,
   CoinPrice,
-  CoinVolume,
+  CoinDelete,
   CoinSymbol,
 } from './WatchlistStyles'
 
   
 const Watchlist = ({ticker, price}) => {
 
+  const deleteData = () => {
+    return deleteWatchlistData(ticker, price)
+  }
+
+  const deleteWatchlistData = async (ticker) => {
+    console.log(ticker, price)
+    let token = localStorage.getItem('auth-user')
+    let data = await fetch('http://localhost:8000/core/watchlist/', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `JWT ${token}`
+      },
+      body: JSON.stringify({
+        "ticker": `${ticker}`,
+    })
+    })
+    let response = await data.json()
+    await console.log(response)
+  };
   return (
     <CoinContainer>
     <CoinRow>
@@ -19,7 +39,7 @@ const Watchlist = ({ticker, price}) => {
       </Coin>
       <CoinData>
         <CoinPrice>PRICE: ${price}</CoinPrice>
-        <CoinVolume>VOLUME: Soon to come!</CoinVolume>
+        <CoinDelete onClick={deleteData}>Delete</CoinDelete>
       </CoinData>
     </CoinRow>
   </CoinContainer>

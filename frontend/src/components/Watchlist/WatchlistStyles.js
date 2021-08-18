@@ -39,7 +39,9 @@ export const CoinData = styled.div`
 export const CoinPrice = styled.p`
   width: 130px;
 `
-export const CoinVolume = styled.p`
+export const CoinDelete = styled.button`
   width: 155px;
-`
+  color:white;
+  background-color:transparent
+  `
 
