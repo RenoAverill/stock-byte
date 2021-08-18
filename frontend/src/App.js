@@ -12,11 +12,28 @@ import CoinPage from './pages/CoinPage/CoinPage';
 import StockPage from './pages/StockPage/StockPage';
 import WatchlistPage from './pages/WatchlistPage/WatchlistPage'
 import UserContext from './context/UserContext';
+import PostLoadingComponent from './components/PostLoading'
+import Posts from './components/Posts'
 
 const App = () => {
   const [user, setUser] = useState(null)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken]= useState(null);
+  const PostLoading = PostLoadingComponent(Posts);
+  const [appState, setAppState] = useState({
+    loading: false,
+    posts: null,
+  })
+
+  useEffect(() => {
+    setAppState({ loading: true });
+    const apiUrl = 'http://localhost:8000/api/';
+    fetch(apiUrl)
+      .then(data=>data.json())
+      .then(posts=>{
+        setAppState({ loading:false, posts: posts })
+      })
+    },[setAppState])
 
   useEffect(() => {
     const getUser = async () => {
@@ -61,17 +78,16 @@ const App = () => {
 
   return (
     <div className='app'>
+      <PostLoadingComponent isLoding={appState.loading} posts={appState.posts}/>
       <Router>
-      <Backgound/>
       <div>
-        <UserContext.Provider value={{user: user, token: token,isLoggedIn: isLoggedIn, handleLogin: handleLogin}}>
-              <Navbar handleLogout={handleLogout} user={user}/> 
+        <UserContext.Provider value={{user: user, token: token,isLoggedIn: isLoggedIn, handleLogin: handleLogin}}> 
               <Route exact path="/" component={HomePage} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/stocks" component={StockPage} />
               <Route exact path="/coins" component={CoinPage} />
-              <Route exact path="/watchlist" component={WatchlistPage} />
+              <Route exact path="/watchlist" component={WatchlistPage} /> 
           </UserContext.Provider>
         </div>
         </Router>

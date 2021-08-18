@@ -51,7 +51,7 @@ ROOT_URLCONF = 'backend.urls'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
@@ -65,7 +65,7 @@ JWT_AUTH = {
 }
 
 
-CORS_ORIGIN_WHITELIST = ['https://localhost:3000','http://localhost:3000']
+CORS_ALLOWED_ORGINS = ['https://localhost:3000','http://localhost:3000']
 
 
 
