@@ -10,7 +10,7 @@ import Signup from './components/Signup/Signup';
 import StockPage from './pages/StockPage/StockPage';
 import WatchlistPage from './pages/WatchlistPage/WatchlistPage';
 import CoinPage from './pages/CoinPage/CoinPage';
-
+import Register from './components/register';
 
 const routing = (
 	<Router>
@@ -19,6 +19,7 @@ const routing = (
       <Navbar/>
 			<Switch>
 				<Route exact path="/" component={App} />
+        <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/stocks" component={StockPage} />
