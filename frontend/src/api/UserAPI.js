@@ -9,7 +9,7 @@ const login = (userObject) => {
 };
 
 const getLoggedInUser = (token) => {
-  return fetch('http://localhost:8000/core/current_user/', {
+  return fetch('http://localhost:8000/users/current_user/', {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `JWT ${token}`
@@ -18,7 +18,7 @@ const getLoggedInUser = (token) => {
 };
 
 const signupUser = (userObject) => {
-  return fetch('http://localhost:8000/core/users/', {
+  return fetch('http://localhost:8000/users/users/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

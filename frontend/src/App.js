@@ -23,15 +23,15 @@ const App = () => {
     posts: null,
   })
 
-  useEffect(() => {
-    setAppState({ loading: true });
-    const apiUrl = 'http://localhost:8000/api/';
-    fetch(apiUrl)
-      .then(data=>data.json())
-      .then(posts=>{
-        setAppState({ loading:false, posts: posts })
-      })
-    },[setAppState])
+  // useEffect(() => {
+  //   setAppState({ loading: true });
+  //   const apiUrl = 'http://localhost:8000/api/';
+  //   fetch(apiUrl)
+  //     .then(data=>data.json())
+  //     .then(posts=>{
+  //       setAppState({ loading:false, posts: posts })
+  //     })
+  //   },[setAppState])
 
   useEffect(() => {
     const getUser = async () => {
@@ -55,22 +55,6 @@ const App = () => {
     setUser(null)
     setIsLoggedIn(false)
     console.log('user logged out!')
-  }
-  
-  const handleLogin = async (evt) => {
-    evt.preventDefault();
-    let userObject = {
-      username: evt.target.username.value,
-      password: evt.target.password.value,
-    }
-    let response = await login(userObject);
-    let data = await response.json();
-    if (data.token) {
-      localStorage.setItem("auth-user", `${data.token}`);
-      setIsLoggedIn(true)
-      setUser(data.user)
-      return Redirect('/coins')
-    }
   }
 
   return (

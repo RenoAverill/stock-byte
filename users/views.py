@@ -21,7 +21,7 @@ class UserViewSet(viewsets.ModelViewSet):
 class UserList(APIView):
     permission_classes = [AllowAny]
 
-    def post(self, request):
+    def post(self, request,  format='json'):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
