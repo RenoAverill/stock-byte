@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Stocks from '../../components/Stock/Stock'
-
+import Navbar from '../../components/Navbar'
 
 const StockPage = () => {
   const [stocks, setStocks] = useState([])
@@ -40,6 +40,7 @@ const StockPage = () => {
 
 
   return (
+    <>
         <div className='coin-app'>
           <div className='coin-search'>
             <h1 className='coin-text'>Search a Stock</h1>
@@ -54,6 +55,7 @@ const StockPage = () => {
           </div>
           {renderStocks()}
         </div>
+    </>
   )
 }
 

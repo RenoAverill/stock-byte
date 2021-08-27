@@ -1,9 +1,15 @@
-from django.urls import path
-from .views import PostList, PostDetail
+from django.urls import path, include
+from blog_api import views
+from rest_framework.routers import DefaultRouter
 
 app_name = 'blog_api'
 
+blog_router = DefaultRouter()
+blog_router.register('', views.PostViewSet)
+
+
+
+
 urlpatterns = [
-    path('<int:pk>/', PostDetail.as_view(), name='detailcreate'),
-    path('', PostList.as_view(), name='listcreate')
+    path('', include(blog_router.urls))
 ]

@@ -4,46 +4,30 @@ import { Nav,
   NavItem, 
 } from './NavbarElements'
 import { useState, useEffect } from 'react'
-import { getLoggedInUser } from '../../api/UserAPI'
+import axiosInstance from '../../axios';
 
-const Navbar = ({user, handleLogout}) => {
-  
-  const [renderItems, setRenderItems] = useState(false)
-  useEffect(() => {
-    const getUser = async () => {
-      if (localStorage.getItem("auth-user") !== 'null') {
-        let response = await getLoggedInUser(localStorage.getItem("auth-user"));
-        let data = await response.json();
-        if (data.username) {
-          setRenderItems(true)
-        }
-      }
-    }
-    if (!user) {
-      getUser();
-    }
-  }, [user])
+const Navbar = () => {
 
-  const renderNavItems = () =>{
-    if (!renderItems) {
-      return(
-        <>
-          <NavItem to='/stocks'>Stocks</NavItem>
-          <NavItem to='/coins'>Coins</NavItem>
-          <NavItem to='/watchlist'>Watchlist</NavItem>
-          <NavItem onClick={handleLogout} to='/'>Logout</NavItem>
-        </>
-      )
-    }
-  }
-  
+  const handleLogout = () => {
+		const response = axiosInstance.post('users/logout/blacklist/', {
+			refresh_token: localStorage.getItem('refresh_token'),
+		});
+		localStorage.removeItem('access_token');
+		localStorage.removeItem('refresh_token');
+		axiosInstance.defaults.headers['Authorization'] = null;
+	};
+
   return (
     <>
       <Nav>
         <NavbarContainer>
           <NavItem to='/'>StockByte</NavItem>
-          {renderNavItems()}
-          <NavItem to='#'>About</NavItem>
+          <NavItem to='/'>blog</NavItem>
+          <NavItem to='/stocks'>Stocks</NavItem>
+          <NavItem to='/coins'>Coins</NavItem>
+          <NavItem to='/'>Watchlist</NavItem>
+          <NavItem onClick={handleLogout} to='/'>Logout</NavItem>
+          <NavItem to='/'>About</NavItem>
         </NavbarContainer>
       </Nav>
     </>

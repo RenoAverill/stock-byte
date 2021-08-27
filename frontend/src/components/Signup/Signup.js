@@ -1,6 +1,5 @@
 import React from 'react'
 import {  useState } from 'react';
-import { signupUser } from '../../api/UserAPI';
 import axiosInstance from '../../axios';
 import { useHistory } from 'react-router-dom';
 import { MainContainer,

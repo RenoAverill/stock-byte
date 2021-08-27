@@ -4,28 +4,20 @@ ButtonContainer,
 Button} from './HomePageStyles';
 import { Link } from 'react-router-dom';
 import React from 'react';
-import Login from '../../components/Login/Login'
 
-
-const HomePage =({ user }) => {
+const HomePage =() => {
   return(
-    <>
-      {
-        !user
-        &&
         <>
           <MainContainer >
             <WelcomeText>Welcome</WelcomeText>
             <ButtonContainer>
-              <Button content={<Link to='login'>Login</Link>} />
+              <Button content={<Link to='/login'>Login</Link>} />
             </ButtonContainer>
             <ButtonContainer>
-              <Button content={<Link to='signup'>Sign up</Link>} />
+              <Button content={<Link to='/create'>Sign up</Link>} />
             </ButtonContainer>
           </MainContainer>
         </>
-}
-    </>
   )
 }
 

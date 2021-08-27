@@ -1,10 +1,10 @@
 
 from django.urls import path
-from .views import UserList, BlacklistTokenUpdateView
+from .views import UserList, BlacklistTokenView
 
 app_name = 'users'
 
 urlpatterns = [
     path('create', UserList.as_view(), name="create_user"),
-    path('logout/blacklist/', BlacklistTokenUpdateView.as_view(), name='blacklist')
+    path('logout/blacklist/', BlacklistTokenView.as_view(), name='blacklist')
 ]

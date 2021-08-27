@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Coins from '../../components/Coin/Coin'
 import axios from 'axios'
+import Navbar from '../../components/Navbar'
 
 const CoinPage = () => {
   const [coins, setCoins] = useState([])
@@ -36,6 +37,7 @@ const CoinPage = () => {
   })
 
   return (
+      <>
         <div className='coin-app'>
           <div className='coin-search'>
             <h1 className='coin-text'>Search a currency</h1>
@@ -46,6 +48,7 @@ const CoinPage = () => {
           </div>
           {renderCoins}
         </div>
+      </>  
   )
 }
 

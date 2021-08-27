@@ -28,7 +28,7 @@ class UserList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class BlacklistTokenUpdateView(APIView):
+class BlacklistTokenView(APIView):
     permission_classes = [AllowAny]
     authentication_classes = ()
 

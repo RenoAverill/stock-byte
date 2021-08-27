@@ -1,6 +1,7 @@
 import React from 'react'
 import Watchlist from '../../components/Watchlist/Watchlist'
 import { useState, useEffect } from 'react'
+import Navbar from '../../components/Navbar'
 
 const WatchlistPage = () => {
   const [stocks, setStocks] = useState([])
@@ -29,12 +30,14 @@ const WatchlistPage = () => {
 
 
   return (
-    <div className='coin-app'>
-      <div className='coin-search'>
-        <h1 className='coin-text'>Welcome to your Watchlist!</h1>
+    <>
+      <div className='coin-app'>
+        <div className='coin-search'>
+          <h1 className='coin-text'>Welcome to your Watchlist!</h1>
+        </div>
+        {renderWatchlist}
       </div>
-      {renderWatchlist}
-    </div>
+    </>
   )
 }
 
