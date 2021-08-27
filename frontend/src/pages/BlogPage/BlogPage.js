@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar'
 
 const BlogPage = () => {
   const [posts, setPosts] = useState([])
+  const [refresh, setrefresh] = useState('')
   
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const BlogPage = () => {
           "title": 'something',
           "content": evt.target[0].value
         })
-      })
+      }).then(res=>setrefresh('refresh posts'))
     }
 
   return (
