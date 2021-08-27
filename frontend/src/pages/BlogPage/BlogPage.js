@@ -18,7 +18,7 @@ const BlogPage = () => {
   }).then(res=>res.json())
     .then(data=>setPosts(data))
     .catch(error => alert("Must Log In to View Posts!"))
-  }, [])
+  })
 
   const renderPosts = posts.map(post=>{
     return (
