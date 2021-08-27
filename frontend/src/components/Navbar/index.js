@@ -22,10 +22,9 @@ const Navbar = () => {
       <Nav>
         <NavbarContainer>
           <NavItem to='/'>StockByte</NavItem>
-          <NavItem to='/'>blog</NavItem>
+          <NavItem to='/blog'>blog</NavItem>
           <NavItem to='/stocks'>Stocks</NavItem>
           <NavItem to='/coins'>Coins</NavItem>
-          <NavItem to='/'>Watchlist</NavItem>
           <NavItem onClick={handleLogout} to='/'>Logout</NavItem>
           <NavItem to='/'>About</NavItem>
         </NavbarContainer>

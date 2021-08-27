@@ -14,13 +14,11 @@ import { MainContainer,
 
 const Login = () => {
   const history = useHistory()
-  const [blog, setBlog] = useState('')
   const [logout, setLougout] = useState('')
 
   const navBarHelper = () => {
     return (
       <Navbar 
-        blog={blog}
         logout={logout}
       />
     )
@@ -42,7 +40,6 @@ const Login = () => {
             localStorage.setItem('refresh_token', res.data.refresh)
             axiosInstance.defaults.headers['Authorization'] = 
               'JWT ' + localStorage.getItem('access_token')
-              setBlog('Blog')
               setLougout('Logout')
               navBarHelper()
               history.push('/coins')

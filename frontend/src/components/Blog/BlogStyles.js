@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const CoinContainer = styled.div`
+export const BlogContainer = styled.div`
   display:flex;
   justify-content: center;
   z-index: 15;
 `
 
-export const CoinRow = styled.div`
+export const BlogRow = styled.div`
   display:flex;
   flex-direction: row;
   justify-content: start;
@@ -15,7 +15,7 @@ export const CoinRow = styled.div`
   border-bottom: 1px solid #d7d7d7;
   width: 990px;
 `
-export const Coin = styled.div`
+export const Blog = styled.div`
   display: flex;
   align-items: center;
   padding-right: 24px;
@@ -26,22 +26,22 @@ export const Coin = styled.div`
     width:150px;
   }
 `
-export const CoinSymbol = styled.p`
+export const BlogCategory = styled.p`
   text-transform: uppercase;;
 `
-export const CoinData = styled.div`
+export const BlogData = styled.div`
   display: flex;
   text-align: center;
   justify-content: space-between;
   width: 100%;
 
   `
-export const CoinPrice = styled.p`
+export const BlogContent = styled.p`
   width: 130px;
 `
-export const CoinDelete = styled.button`
+export const BlogDelete = styled.button`
   width: 155px;
   color:white;
-  background-color:transparent
+  background-color:transparent;
   `
 

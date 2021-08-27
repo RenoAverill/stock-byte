@@ -7,7 +7,7 @@ import Background from './components/Background/index'
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import StockPage from './pages/StockPage/StockPage';
-import WatchlistPage from './pages/WatchlistPage/WatchlistPage';
+import BlogPage from './pages/BlogPage/BlogPage';
 import CoinPage from './pages/CoinPage/CoinPage';
 import Navbar from './components/Navbar';
 
@@ -23,7 +23,7 @@ const routing = (
         <Route exact path="/login" component={Login} />
         <Route exact path="/stocks" component={StockPage} />
         <Route exact path="/coins" component={CoinPage} />
-        <Route exact path="/watchlist" component={WatchlistPage} /> 
+        <Route exact path="/blog" component={BlogPage} /> 
 			</Switch>
 		</React.StrictMode>
 	</Router>
